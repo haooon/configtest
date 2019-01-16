@@ -3,16 +3,19 @@ spring:
     config:
       server:
         git:
-          password: your password
           searchPaths: respo
-          uri: https://github.com/forezp/SpringcloudConfig/
+          uri: https://github.com/haooon/SpringcloudConfig
           username: your username
+          password: your password
       label: master
+    consul:
+      port: 8500
+      discovery:
+        healthCheckUrl: http://${server.ip}:${server.port}/actuator/health
+        healthCheckInterval: 15s
+        instance-id: spring-cloud-config-sever
   application:
     name: config-server
 server:
+  ip: 172.20.35.102
   port: 8888
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8889/eureka/

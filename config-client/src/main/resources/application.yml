@@ -1,9 +1,9 @@
 spring:
   rabbitmq:
-    password: guest
+    password: 14135276mq
     port: 5672
     host: localhost
-    username: guest
+    username: haooon
   cloud:
     bus:
       trace:
@@ -15,16 +15,19 @@ spring:
         enabled: true
       profile: dev
       label: master
+    consul:
+      port: 8500
+      discovery:
+        healthCheckUrl: http://${server.ip}:${server.port}/actuator/health
+        healthCheckInterval: 15s
+        instance-id: spring-cloud-config-client
   application:
     name: config-client
 management:
   endpoints:
     web:
       exposure:
-        include: bus-refresh
+        include: bus-refresh,health,info
 server:
+  ip: 172.20.35.102
   port: 8881
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8889/eureka/

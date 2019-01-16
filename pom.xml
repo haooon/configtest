@@ -12,7 +12,6 @@
 <modules>
     <module>config-server</module>
     <module>config-client</module>
-    <module>configserver</module>
 </modules>
 
 <name>spring-cloud-config-test</name>
